@@ -753,3 +753,13 @@ html:not(.js){
   a[href^="http"]::after{content:" (" attr(href) ")";font-size:.75em}
   .sec{padding:1.5rem 0}
 }
+/* Big screens: every room in a grid you scroll down through, no arrows (David, 23 Sep 2026). Phones and tablets keep the swipe row. */
+@media (min-width:1024px){
+.rrow{overflow:visible;scroll-snap-type:none;scroll-padding-inline:0}
+.rrow__list{grid-auto-flow:row;grid-auto-columns:auto;grid-template-columns:repeat(3,minmax(0,1fr));gap:3rem 2rem;width:auto;max-width:var(--wrap);margin-inline:auto;padding:0 var(--gut)}
+.rail-nav,.rail-bar{display:none!important}
+.rrow__list>li:last-child:nth-child(3n+1){grid-column:1/-1}
+.rrow__list>li:last-child:nth-child(3n+1) .rc{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);column-gap:2rem;align-items:end}
+.rrow__list>li:last-child:nth-child(3n+1) .rc__img{aspect-ratio:2/1;height:100%;width:100%;object-fit:cover}
+.rrow__list>li:last-child:nth-child(3n+1) .rc__body{margin-top:0}
+}
