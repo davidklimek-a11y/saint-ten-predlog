@@ -11,7 +11,8 @@
    6. Small repairs to shared behaviour, in the page language: the lightbox buttons get their names from v2.py,
       a copy button says "Copied" once it has copied, and a request form never offers a date in the past.
    7. Desktop: the door bar rises as soon as the header's own "Book a room" | "Book a table" pair is out of view
-      (html[data-bar]); below 1100 px the bar is always pinned (v2.css). */
+      (html[data-bar]); below 1100 px the bar is always pinned (v2.css).
+   8. Every moving film can be paused (WCAG 2.2.2). */
 (() => {
   document.querySelectorAll('video[data-autoplay]').forEach(v => {
     v.addEventListener('playing', () => v.classList.add('is-live'), { once: true });
@@ -102,4 +103,34 @@ addEventListener('pageswap', e => {
   new IntersectionObserver(([e]) => {
     document.documentElement.dataset.bar = !e.isIntersecting && e.boundingClientRect.bottom < 0 ? '1' : '';
   }).observe(pair);
+})();
+/* 8. A loop's control appears once its film really plays (never with reduced motion or Save-Data); a reel's at once, the
+      keyboard route to its click-to-play, and a click on the reel goes through the same switch (this file runs before
+      site.js). One paused here stays paused (data-held) when site.js would play it again in view. */
+(() => {
+  const narrow = matchMedia('(max-width: 760px)');
+  const icon = { pause: 'M4 2.5h3v11H4zm5 0h3v11H9z', play: 'M5 2.2v11.6L14 8z' };
+  document.querySelectorAll('.vctl').forEach(b => {
+    const v = document.getElementById(b.getAttribute('aria-controls'));
+    if (!v) return;
+    const sync = () => {
+      b.setAttribute('aria-label', v.paused ? b.dataset.play : b.dataset.pause);
+      b.querySelector('path').setAttribute('d', v.paused ? icon.play : icon.pause);
+    };
+    const toggle = () => {
+      if (!v.paused) { v.dataset.held = '1'; v.pause(); return; }
+      delete v.dataset.held;
+      if (!v.dataset.loaded) { v.src = (narrow.matches && v.dataset.srcMobile) || v.dataset.src; v.dataset.loaded = '1'; }
+      const p = v.play(); p && p.catch(() => {});
+    };
+    v.addEventListener('play', () => { if (v.dataset.held) v.pause(); else sync(); });
+    v.addEventListener('playing', () => { b.hidden = false; sync(); });
+    v.addEventListener('pause', sync);
+    b.addEventListener('click', ev => { ev.stopPropagation(); toggle(); });
+    const reel = b.closest('[data-reel]');
+    if (reel) {
+      b.hidden = false; sync();
+      reel.addEventListener('click', ev => { if (ev.target.closest('a, .vctl')) return; ev.stopImmediatePropagation(); toggle(); });
+    }
+  });
 })();

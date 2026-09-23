@@ -1,6 +1,5 @@
-/* Saint Ten · proposal 2 · "Stay & Dine" — Belgrade enamel.
-   Two doors: street-sign cobalt (hotel) and menu-cover bordeaux (restaurant), enamel-white type, a thin white inset border
-   on every plate, 4 px plate radius only. Barlow Condensed for plates and labels, Barlow for text, EB Garamond italic for dishes. */
+/* Saint Ten · proposal 2 · "Stay & Dine" — Belgrade enamel: a cobalt door (hotel), a bordeaux door (restaurant), flat
+   plates with a thin white inset border, 4 px radius only. The system is written up in dizajn/v2/DESIGN.md. */
 
 /* ---- fonts (self-hosted, latin + latin-ext) */
 @font-face { font-family: "Barlow Condensed"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/v2-barlow-condensed-500-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
@@ -14,8 +13,7 @@
 @font-face { font-family: "EB Garamond"; font-style: italic; font-weight: 400; font-display: swap; src: url("../fonts/v2-eb-garamond-400i-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: "EB Garamond"; font-style: italic; font-weight: 400; font-display: swap; src: url("../fonts/v2-eb-garamond-400i-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 @font-face { font-family: "EB Garamond"; font-style: italic; font-weight: 400; font-display: swap; src: url("../fonts/v2-eb-garamond-400i-cyrillic.woff2") format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
-/* Russian: Sofia Sans (Condensed), a grotesque with a native Cyrillic; named only under html:lang(ru), so no other
-   language downloads it */
+/* Russian: Sofia Sans (Condensed), native Cyrillic, named only under html:lang(ru): no other language loads it */
 @font-face { font-family: "Sofia Sans Condensed"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/v2-sofia-sans-condensed-500-cyrillic.woff2") format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
 @font-face { font-family: "Sofia Sans Condensed"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/v2-sofia-sans-condensed-500-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: "Sofia Sans Condensed"; font-style: normal; font-weight: 600; font-display: swap; src: url("../fonts/v2-sofia-sans-condensed-600-cyrillic.woff2") format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
@@ -57,7 +55,7 @@ h1, h2, h3, p, li, dd { overflow-wrap: break-word; }
 /* ---- base */
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-/* focus scrolling stops above the door bar wherever it is pinned (always below 1100 px; on desktop once risen) */
+/* focus scrolling stops above the door bar wherever it is pinned */
 html[data-bar="1"] { scroll-padding-bottom: calc(var(--bar-h) + env(safe-area-inset-bottom) + .75rem); }
 @media (max-width: 1099px) { html { scroll-padding-bottom: calc(var(--bar-h) + env(safe-area-inset-bottom) + .75rem); } }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 400 var(--step-0)/1.55 var(--f-text); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
@@ -99,8 +97,8 @@ address { font-style: normal; }
 [id] { scroll-margin-top: 1rem; }
 
 /* ---- plates, number plate, buttons: flat colour and a thin white inset border, nothing more */
-.plate, .btn, .bk__go, .mf__go, .mf__copy, .film-btn, .nplate { position: relative; background: var(--cobalt); color: var(--enamel); border-radius: 4px; }
-.plate::before, .btn::before, .bk__go::before, .mf__go::before, .mf__copy::before, .film-btn::before, .nplate::before { content: ""; position: absolute; inset: 4px; border: 1px solid rgba(255, 255, 255, .82); border-radius: 2px; pointer-events: none; }
+.plate, .btn, .bk__go, .mf__go, .mf__copy, .film-btn, .nplate, .vctl { position: relative; background: var(--cobalt); color: var(--enamel); border-radius: 4px; }
+.plate::before, .btn::before, .bk__go::before, .mf__go::before, .mf__copy::before, .film-btn::before, .nplate::before, .vctl::before { content: ""; position: absolute; inset: 4px; border: 1px solid rgba(255, 255, 255, .82); border-radius: 2px; pointer-events: none; }
 .plate { display: inline-flex; align-items: stretch; font: 600 .92rem/1 var(--f-cond); letter-spacing: .1em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: background-color var(--t-ui) ease, color var(--t-ui) ease, scale var(--t-press) var(--ease); }
 .plate::before { transition: border-color var(--t-ui) ease; }
 .plate__name { padding: .72em 1.05em .62em; }
@@ -112,9 +110,9 @@ address { font-style: normal; }
 .plate--ink { background-color: var(--ink); }
 a.plate:hover, a.plate:focus-visible { background-color: var(--cobalt-deep); }
 a.plate--bordeaux:hover, a.plate--bordeaux:focus-visible { background-color: var(--bordeaux-deep); }
-.btn, .bk__go, .mf__go, .mf__copy, .film-btn { display: inline-flex; align-items: center; justify-content: center; padding: .9em 1.4em .82em; font: 600 .95rem/1 var(--f-cond); letter-spacing: .1em; text-transform: uppercase; text-decoration: none; border: 0; cursor: pointer; white-space: nowrap; transition: background-color var(--t-ui) ease, scale var(--t-press) var(--ease); }
+.btn, .bk__go, .mf__go, .mf__copy, .film-btn, .vctl { display: inline-flex; align-items: center; justify-content: center; padding: .9em 1.4em .82em; font: 600 .95rem/1 var(--f-cond); letter-spacing: .1em; text-transform: uppercase; text-decoration: none; border: 0; cursor: pointer; white-space: nowrap; transition: background-color var(--t-ui) ease, scale var(--t-press) var(--ease); }
 /* press feedback */
-:is(.btn, .bk__go, .mf__go, .mf__copy, .film-btn, a.plate, button.plate):active { scale: .97; }
+:is(.btn, .bk__go, .mf__go, .mf__copy, .film-btn, a.plate, button.plate, .vctl):active { scale: .97; }
 .btn:hover, .bk__go:hover, .mf__go:hover, .film-btn:hover { background-color: var(--cobalt-deep); }
 .btn--bordeaux:hover, .door-dine .mf__go:hover, .door-dine .bk__go:hover { background-color: var(--bordeaux-deep); }
 .btn--sm { font-size: .82rem; padding: .72em 1.05em .66em; }
@@ -166,8 +164,7 @@ a.plate--bordeaux:hover, a.plate--bordeaux:focus-visible { background-color: var
 .nav-toggle__close, .nav-toggle[aria-expanded="true"] .nav-toggle__open { display: none; }
 .nav-toggle[aria-expanded="true"] .nav-toggle__close { display: inline; }
 
-/* ---- the door bar: both actions side by side, its height reserved at the foot of the page; on desktop it rises once
-   the header's own pair has left the screen (html[data-bar], v2.js) */
+/* ---- the door bar: both actions, its height reserved at the page foot; on desktop it rises with html[data-bar] (v2.js) */
 .doorbar { position: fixed; z-index: 25; left: 0; right: 0; bottom: 0; padding: .5rem 0 calc(.5rem + env(safe-area-inset-bottom)); background: var(--paper); border-top: 1px solid var(--line); }
 .doorbar__row { display: flex; align-items: center; gap: 6px; }
 .doorbar__tel { display: none; }
@@ -185,6 +182,7 @@ a.plate--bordeaux:hover, a.plate--bordeaux:focus-visible { background-color: var
 .doors { display: flex; gap: 4px; background: var(--paper); height: calc(100vh - var(--chrome-h)); height: calc(100svh - var(--chrome-h)); min-height: 560px; max-height: 1040px; }
 .door { position: relative; flex: 1 1 0%; min-width: 0; overflow: hidden; background: var(--night); color: #fff; transition: flex-grow .9s var(--ease); }
 .door:focus-within { flex-grow: 1.55; }
+.door:has(> .vctl:focus:not(:focus-visible)):not(:hover) { flex-grow: 1; }
 @media (hover: hover) and (pointer: fine) { .door:hover { flex-grow: 1.55; } }
 .door__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 /* the still under every loop is the LCP; the loop itself fades in only once it plays (v2.js adds .is-live) */
@@ -200,7 +198,7 @@ a.plate--bordeaux:hover, a.plate--bordeaux:focus-visible { background-color: var
 .door--dine .door__plate { left: auto; right: clamp(1rem, 3vw, 2.25rem); }
 .door__body { position: absolute; z-index: 2; bottom: clamp(1.5rem, 4.5vw, 3.5rem); left: clamp(1rem, 3vw, 2.25rem); right: clamp(1rem, 3vw, 2.25rem); display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
 .door--dine .door__body { align-items: flex-start; text-align: left; }
-/* side by side, the text block carries its own door scrim: a title of any length never sits on the pale façade */
+/* side by side, each text block carries its own door scrim: no title sits on the pale façade */
 @media (min-width: 761px) {
   .door__body::before { content: ""; position: absolute; z-index: -1; inset: -7rem -100vw calc(-1 * clamp(1.5rem, 4.5vw, 3.5rem)); pointer-events: none; background: linear-gradient(to top, rgba(14, 31, 74, .58), rgba(14, 31, 74, .58) calc(100% - 7rem), rgba(14, 31, 74, 0)); }
   .door--dine .door__body::before { background: linear-gradient(to top, rgba(42, 12, 20, .5), rgba(42, 12, 20, .5) calc(100% - 7rem), rgba(42, 12, 20, 0)); }
@@ -224,7 +222,7 @@ a.plate--bordeaux:hover, a.plate--bordeaux:focus-visible { background-color: var
 .fig img { display: block; width: 100%; height: auto; transition: clip-path var(--t-open) var(--ease), scale var(--t-open) var(--ease); }
 .fig .plate { position: absolute; top: 1rem; left: 1rem; }
 .bk-note { margin-top: 1rem; }
-/* the two doors again, at the desk: dates for a room beside a table, one white counter split by a hairline */
+/* the two doors at the desk: room dates beside a table, one counter split by a hairline */
 .twin { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); background: var(--field); border: 1px solid var(--line); }
 .twin__door { display: flex; flex-direction: column; align-items: flex-start; gap: 1.25rem; min-width: 0; padding: clamp(1.25rem, 3vw, 2.5rem); }
 .twin__door + .twin__door { border-left: 1px solid var(--line); }
@@ -244,8 +242,7 @@ a.plate--bordeaux:hover, a.plate--bordeaux:focus-visible { background-color: var
 /* the text block carries its own scrim (three-line titles on narrow cards) */
 .quad__body::before { content: ""; position: absolute; z-index: -1; inset: -3rem 0 0; pointer-events: none; background: linear-gradient(to top, rgba(21, 19, 20, .5), rgba(21, 19, 20, .5) calc(100% - 3rem), rgba(21, 19, 20, 0)); }
 .quad__item .plate { position: absolute; z-index: 3; top: 1rem; left: 1rem; max-width: calc(100% - 2rem); }
-/* a card plate never outgrows its card: on a narrow card, and on any Russian card (long tags), it stacks its tag under
-   the name like a two-tier sign; a long name may wrap */
+/* a card plate never outgrows its card: on a narrow or Russian card it stacks into a two-tier sign */
 .quad__item { container-type: inline-size; }
 .quad__item .plate__name { white-space: normal; }
 @container (max-width: 262px) { .quad__item .plate { flex-direction: column; } .quad__item .plate__tag { padding-top: .6em; } .quad__item .plate__tag::before { left: 9px; right: 9px; top: 0; bottom: auto; border-left: 0; border-top: 1px solid rgba(255, 255, 255, .55); } }
@@ -265,6 +262,12 @@ a.plate--bordeaux:hover, a.plate--bordeaux:focus-visible { background-color: var
 .reel__still, .reel__frame video { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
 .reel figcaption { display: flex; flex-direction: column; gap: .25rem; margin-top: .6rem; font-size: var(--step--1); color: var(--ink-2); }
 .reel__ig { color: var(--ink); font-weight: 500; }
+/* pause / play (WCAG 2.2.2): a night plate; its focus ring sits inside, so it holds on any frame */
+.vctl { --focus: #fff; position: absolute; z-index: 3; top: var(--vi, .5rem); right: var(--vi, .5rem); width: 2.75rem; height: 2.75rem; padding: 0; background: var(--night); }
+.vctl:hover, .vctl:focus-visible { background: #000; outline-offset: -3px; }
+.door > .vctl { --vi: clamp(1rem, 3vw, 2.25rem); }
+.door--dine > .vctl { right: auto; left: var(--vi); }
+.phead__hero > .vctl { top: clamp(1rem, 3vw, 2rem); right: var(--gutter); }
 
 /* ---- page head */
 .phead__hero { position: relative; overflow: hidden; background: var(--night); }
@@ -336,7 +339,7 @@ a.plate--bordeaux:hover, a.plate--bordeaux:focus-visible { background-color: var
 .ld-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 300px); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
 .bar__reel .reel, .meet__reel .reel { width: 100%; max-width: 300px; }
 .ld-intro__img { display: block; width: 100%; aspect-ratio: 2 / 3; object-fit: cover; transition: clip-path var(--t-open) var(--ease), scale var(--t-open) var(--ease); }
-/* the hero's lower half is a white tablecloth: a deeper scrim keeps the name and the line legible over it */
+/* the hero's lower half is a white tablecloth: a deeper scrim keeps the text legible */
 .page-ladresse .phead__scrim { background: linear-gradient(to top, rgba(21, 19, 20, .94) 0%, rgba(21, 19, 20, .82) 24%, rgba(21, 19, 20, .42) 50%, rgba(21, 19, 20, 0) 74%); }
 .strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.25rem 2rem; margin: 2rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--line); }
 .ld-gallery { padding-top: 0; }
@@ -348,7 +351,7 @@ a.plate--bordeaux:hover, a.plate--bordeaux:focus-visible { background-color: var
 .menu { padding-top: clamp(2.5rem, 5vw, 4.5rem); }
 .menu__head { margin-bottom: 1.5rem; }
 .menu__head h2 { margin-bottom: .3em; }
-/* the section tabs are real plates; the strip sticks while the menu scrolls, and on phones scrolls sideways itself */
+/* the section tabs are real plates; the strip sticks, and on phones scrolls sideways */
 .menu__tabs { position: sticky; top: 0; z-index: 6; flex-wrap: nowrap; gap: .55rem; overflow-x: auto; overscroll-behavior-x: contain; padding: .8rem 6px; margin: 0 -6px; background: var(--paper); border-bottom: 1px solid var(--line); scrollbar-width: thin; scrollbar-color: var(--line) transparent; -webkit-overflow-scrolling: touch; }
 .menu__tab { flex: 0 0 auto; font-size: 1.05rem; letter-spacing: .08em; }
 .menu__tab .plate__name { padding: .78em 1.2em .68em; }
@@ -364,8 +367,7 @@ a.plate--bordeaux:hover, a.plate--bordeaux:focus-visible { background-color: var
 .dish__desc { grid-column: 1 / -1; font-size: var(--step--1); color: var(--ink-2); max-width: 46ch; }
 .menu__foot { margin-top: 2rem; }
 
-/* ---- Gordon Ramsay, a concept (--ramsay only): the name typeset on an enamel-white plate (no logo, no door colour), a
-   dashed "proposed" outline with the Concept tag set into it. Tag and note never animate. */
+/* ---- Gordon Ramsay, a concept (--ramsay only): a typeset enamel-white plate in a dashed outline; tag and note never animate */
 .ramsay-sign { margin-top: clamp(3rem, 7vw, 5.5rem); }
 .ld-concept .ramsay-sign { margin-top: .75rem; }
 .ramsay { --dash: color-mix(in srgb, currentColor 46%, transparent); container-type: inline-size; position: relative; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); grid-template-areas: "lockup title" "lockup line" "lockup note"; grid-template-rows: auto auto 1fr; gap: 0 clamp(1.5rem, 5vw, 5rem); color: var(--ink); padding: clamp(2.5rem, 5vw, 4rem) clamp(1.25rem, 4vw, 3.5rem) clamp(1.75rem, 4vw, 3rem); border: 1px dashed var(--dash); }
@@ -486,7 +488,7 @@ html:lang(sr) .ramsay__lockup { font-size: clamp(1.55rem, 3.6cqi, 3.1rem); }   /
   .hdr__logo img, .night .hdr__logo img { height: 46px; }
   .hdr__tools { display: none; }
   .nav-toggle { display: inline-flex; }
-  /* hidden from the first paint (no shift when site.js arrives); a <noscript> style in <head> shows it without JS */
+  /* hidden from the first paint (no shift); a <noscript> style in <head> shows it without JS */
   .nav { display: none; }
   .nav[data-open="1"] { display: block; position: fixed; inset: 0; z-index: 30; overflow: auto; background: var(--paper); padding: 6rem 0 7rem; scroll-padding: 5rem 0 calc(var(--bar-h) + env(safe-area-inset-bottom) + .75rem); }
   html.nav-open { overflow: hidden; }
@@ -536,6 +538,7 @@ html:lang(sr) .ramsay__lockup { font-size: clamp(1.55rem, 3.6cqi, 3.1rem); }   /
   .door { flex: none; height: 50vh; height: 50svh; min-height: 380px; transition: none; }
   .door:hover, .door:focus-within { flex-grow: 1; }
   .door__plate, .door--dine .door__plate { top: 1rem; left: 1rem; right: auto; }
+  .door > .vctl { --vi: 1rem; } .door--dine > .vctl { left: auto; right: 1rem; }
   .door__body, .door--dine .door__body { left: 1rem; right: 1rem; bottom: 1.5rem; align-items: flex-start; text-align: left; }
   .door--stay .door__actions { flex-direction: row; }
   .door__title { font-size: var(--step-3); max-width: none; }
@@ -574,9 +577,7 @@ html:lang(sr) .ramsay__lockup { font-size: clamp(1.55rem, 3.6cqi, 3.1rem); }   /
   .doorbar .btn { font-size: .8rem; letter-spacing: .06em; }
 }
 
-/* ---- motion: "the doors open, the plates are mounted". 1 · first screen: stills settle, plates wipe on, text rises (Dine
-   a beat after Stay). 2 · scroll: photos open from an inset, then their plate mounts (only under html.js.reveal-ready).
-   3 · between pages: a cross-fade; the door's plate travels into the next page head. clip-path, scale, opacity only. */
+/* ---- motion: "the doors open, the plates are mounted" (DESIGN.md, Motion); clip-path, scale, opacity only */
 @keyframes v2-settle { from { scale: 1.05; } }
 @keyframes v2-mount { from { clip-path: inset(0 100% 0 0); } }
 @keyframes v2-rise { from { opacity: 0; translate: 0 .9rem; } }
@@ -590,6 +591,7 @@ html:lang(sr) .ramsay__lockup { font-size: clamp(1.55rem, 3.6cqi, 3.1rem); }   /
   .door .still__img, .phead__img, .phead .still__img { animation: v2-settle var(--t-open) var(--ease) both; }
   .door__plate .plate, .phead__plate .plate { animation: v2-mount var(--t-mount) var(--ease) .16s both; }
   .door--dine .door__plate .plate { animation-delay: .26s; }
+  :is(.door, .phead__hero) > .vctl { animation: v2-mount var(--t-mount) var(--ease) both; }
   .door__body > * { animation: v2-rise .6s var(--ease) .14s both; }
   .door__line { animation-delay: .22s; } .door__actions { animation-delay: .3s; }
   .door--dine .door__title { animation-delay: .24s; } .door--dine .door__line { animation-delay: .32s; } .door--dine .door__actions { animation-delay: .4s; }
@@ -626,14 +628,14 @@ html:lang(sr) .ramsay__lockup { font-size: clamp(1.55rem, 3.6cqi, 3.1rem); }   /
   html { scroll-behavior: auto; }
   .door { transition: none; }
   .door:hover, .door:focus-within { flex-grow: 1; }
-  :is(.btn, .bk__go, .mf__go, .mf__copy, .film-btn, a.plate, button.plate):active { scale: none; }
+  :is(.btn, .bk__go, .mf__go, .mf__copy, .film-btn, a.plate, button.plate, .vctl):active { scale: none; }
 }
 @media (prefers-reduced-motion: reduce) and (min-width: 1100px) {
   .doorbar { transform: none; opacity: 0; transition: opacity var(--t-ui) ease, visibility 0s var(--t-ui); }
   html[data-bar="1"] .doorbar { opacity: 1; transition-delay: 0s; }
 }
 @media print {
-  .draft, .skip, .hdr__tools, .nav, .nav-toggle, .doorbar, .door__video, .door__scrim, .door__body::before, .phead__video, .phead__scrim, .reels, .reel, .film-btn, .film, .lightbox, .bk, .mf__actions, .menu__tabs { display: none !important; }
+  .draft, .skip, .hdr__tools, .nav, .nav-toggle, .doorbar, .door__video, .door__scrim, .door__body::before, .phead__video, .phead__scrim, .vctl, .reels, .reel, .film-btn, .film, .lightbox, .bk, .mf__actions, .menu__tabs { display: none !important; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   img, .plate, .nplate, .ramsay__lockup { clip-path: none !important; scale: none !important; }
   body, .night, .band--night, .ftr { background: #fff !important; color: #000 !important; --ink: #000; --ink-2: #333; --line: #bbb; --paper: #fff; }
