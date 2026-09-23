@@ -279,7 +279,7 @@ html:not(.js) .loop video{display:none}
 .door__sub{margin-top:.3rem;font-size:.86rem;line-height:1.4;color:var(--bone-2)}
 .door__a:hover .door__name{color:var(--gold)}
 @media (min-width:800px){.doors{grid-template-columns:1fr 1fr;gap:1.75rem}}
-.index{padding:0 0 4.5rem}
+.index{padding:clamp(3.5rem,6vw,6rem) 0 4.5rem}  /* room to breathe after the chapter photo (David, 23 Sep 2026: "pictures are cut") */
 .index .rooms{padding:0 var(--gx);max-width:calc(var(--max) + 2 * var(--gx));margin:0 auto}
 .index__all{padding:0 var(--gx);margin-top:2.5rem;text-align:center}
 
