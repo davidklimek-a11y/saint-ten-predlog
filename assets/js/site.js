@@ -141,7 +141,8 @@
   /* Belgrade local time for [data-clock]. */
   const clocks = $$('[data-clock]');
   if (clocks.length) {
-    const fmt = new Intl.DateTimeFormat(root.lang === 'sr' ? 'sr-Latn-RS' : 'en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Belgrade' });
+    const loc = { sr: 'sr-Latn-RS', ru: 'ru-RU', de: 'de-DE', tr: 'tr-TR' }[root.lang] || 'en-GB';
+    const fmt = new Intl.DateTimeFormat(loc, { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Belgrade' });
     const tick = () => clocks.forEach(c => { c.textContent = fmt.format(new Date()); });
     tick(); setInterval(tick, 30000);
   }

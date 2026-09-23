@@ -1,12 +1,10 @@
-/* Saint Ten · proposal 3 "The story" — a title sequence, not a scrapbook.
-   Near-black grounds, one colour field per chapter, lamp gold only where light falls; Josefin Sans spaced caps for title cards,
-   Spectral for reading; the logo's three dots are the only ornament. Contrast pairs measured against the tokens below. */
+/* Saint Ten · proposal 3 "The story": a title sequence, not a scrapbook (system, contrast, motion: dizajn/v3/DESIGN.md).
+   Spatial motion only under prefers-reduced-motion: no-preference; everything is visible without it and without JS. */
 
-/* ---- fonts (Google Fonts WOFF2, self-hosted; latin + latin-ext for č ć đ š ž) ---------------------------------------- */
-@font-face{font-family:'Josefin Sans';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/v3-josefin-400-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Josefin Sans';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/v3-josefin-400-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Josefin Sans';font-style:normal;font-weight:600;font-display:swap;src:url('../fonts/v3-josefin-600-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Josefin Sans';font-style:normal;font-weight:600;font-display:swap;src:url('../fonts/v3-josefin-600-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+/* ---- fonts: self-hosted WOFF2 (Josefin variable 400–600, Spectral). Russian: Jost caps + Spectral's Cyrillic, one
+   text= subset file per style, fetched only for Russian text ---- */
+@font-face{font-family:'Josefin Sans';font-style:normal;font-weight:400 600;font-display:swap;src:url('../fonts/v3-josefin-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Josefin Sans';font-style:normal;font-weight:400 600;font-display:swap;src:url('../fonts/v3-josefin-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:Spectral;font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/v3-spectral-400-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:Spectral;font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/v3-spectral-400-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:Spectral;font-style:italic;font-weight:400;font-display:swap;src:url('../fonts/v3-spectral-400i-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
@@ -14,22 +12,29 @@
 @font-face{font-family:Spectral;font-style:normal;font-weight:500;font-display:swap;src:url('../fonts/v3-spectral-500-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:Spectral;font-style:normal;font-weight:500;font-display:swap;src:url('../fonts/v3-spectral-500-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 
-/* ---- tokens --------------------------------------------------------------------------------------------------------- */
+@font-face{font-family:Jost;font-style:normal;font-weight:300 600;font-display:swap;src:url('../fonts/v3-jost-ru.woff2') format('woff2');unicode-range:U+0020-007E,U+00A0-00FF,U+0301,U+0400-045F,U+0490-0491,U+2013-2014,U+2018-201A,U+201C-201E,U+2022,U+2026,U+2032-2033,U+2039-203A,U+20AC,U+20BD,U+2116}
+@font-face{font-family:'Spectral RU';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/v3-spectral-400-ru.woff2') format('woff2');unicode-range:U+0020-007E,U+00A0-00FF,U+0301,U+0400-045F,U+0490-0491,U+2013-2014,U+2018-201A,U+201C-201E,U+2022,U+2026,U+2032-2033,U+2039-203A,U+20AC,U+20BD,U+2116}
+@font-face{font-family:'Spectral RU';font-style:italic;font-weight:400;font-display:swap;src:url('../fonts/v3-spectral-400i-ru.woff2') format('woff2');unicode-range:U+0020-007E,U+00A0-00FF,U+0301,U+0400-045F,U+0490-0491,U+2013-2014,U+2018-201A,U+201C-201E,U+2022,U+2026,U+2032-2033,U+2039-203A,U+20AC,U+20BD,U+2116}
+@font-face{font-family:'Spectral RU';font-style:normal;font-weight:500;font-display:swap;src:url('../fonts/v3-spectral-500-ru.woff2') format('woff2');unicode-range:U+0020-007E,U+00A0-00FF,U+0301,U+0400-045F,U+0490-0491,U+2013-2014,U+2018-201A,U+201C-201E,U+2022,U+2026,U+2032-2033,U+2039-203A,U+20AC,U+20BD,U+2116}
+
+/* ---- tokens ---- */
 :root{
   color-scheme:dark;
-  --ink:#0f0d0d;--ink-2:#171414;--ink-3:#221d1d;
+  --ink:#0f0d0d;--ink-2:#171414;
   --ox:#6d1d20;--green:#1d3b31;--mid:#16213a;
   --gold:#e2b04a;--gold-2:rgba(226,176,74,.55);--gold-3:rgba(226,176,74,.24);--glow:0 0 14px 2px rgba(226,176,74,.5);
   --bone:#f1eae0;--bone-2:rgba(241,234,224,.78);--bone-3:rgba(241,234,224,.64);
   --line:rgba(241,234,224,.2);--line-2:rgba(241,234,224,.1);
   --f-caps:'Josefin Sans',Futura,'Century Gothic','Avenir Next',sans-serif;
   --f-read:Spectral,Georgia,'Times New Roman',serif;
-  --ease:cubic-bezier(.16,1,.3,1);
+  /* motion: arrivals decelerate (iris, focus pull, rise); movement on screen eases both ways (the dots closing) */
+  --ease:cubic-bezier(.16,1,.3,1);--ease-io:cubic-bezier(.77,0,.175,1);--t-ui:.2s;--t-in:.7s;
   --gx:clamp(1rem,4vw,3.5rem);--hd:4.5rem;--max:84rem;--measure:62ch;
   --t-1:clamp(2rem,1.1rem + 4.2vw,4.8rem);--t-2:clamp(1.35rem,1rem + 1.7vw,2.45rem);--t-3:clamp(1.1rem,1rem + .7vw,1.5rem);
 }
+:root:lang(ru){--f-caps:Jost,'Josefin Sans',Futura,'Century Gothic','Avenir Next',sans-serif;--f-read:'Spectral RU',Spectral,Georgia,'Times New Roman',serif}
 
-/* ---- base ----------------------------------------------------------------------------------------------------------- */
+/* ---- base ---- */
 *,*::before,*::after{box-sizing:border-box}
 html{background:var(--ink);color:var(--bone);font:400 1.0625rem/1.65 var(--f-read);-webkit-text-size-adjust:100%;scrollbar-color:var(--gold-2) var(--ink);text-underline-offset:.18em;scroll-padding-top:var(--hd)}
 body{margin:0;min-height:100svh;background:var(--ink);caret-color:var(--gold);accent-color:var(--gold);overflow-x:clip}
@@ -37,18 +42,21 @@ body{margin:0;min-height:100svh;background:var(--ink);caret-color:var(--gold);ac
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 [hidden]{display:none!important}
 img,video{display:block;max-width:100%;height:auto}
-a{color:inherit;text-decoration-thickness:1px;text-decoration-color:var(--gold-2)}
+a{color:inherit;text-decoration-thickness:1px;text-decoration-color:var(--gold-2);transition:color var(--t-ui) var(--ease),text-decoration-color var(--t-ui) var(--ease)}
 a:hover{text-decoration-color:var(--gold)}
 b,strong{font-weight:500}
 h1,h2,h3,p,ul,ol,dl,dd,figure,fieldset,legend{margin:0;padding:0}
+h1,h2,h3{overflow-wrap:break-word}
 ul,ol{list-style:none}
 fieldset{border:0;min-width:0}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
 dialog{margin:auto;color:var(--bone)}
 .main:focus{outline:0}
+/* long DE/RU/TR words hyphenate on phones instead of overflowing (never words under 12 letters) */
+@media (max-width:640px){:is(:lang(de),:lang(ru),:lang(tr)) :is(h1,h2,h3,.nav__a,.nav__b,.ft__nav a,.door__name,.rc__name,.others__list b,.feat__t,.finder__f){hyphens:auto;hyphenate-limit-chars:12 5 5}}
 
-/* the shared caps voice: title cards, labels, buttons */
-.btn,.bk__go,.mf__go,.mf__copy,.film-btn,.tab{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:2.9rem;padding:.95em 1.6em .7em;border:1px solid var(--bone);font:600 .76rem/1 var(--f-caps);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--bone);background:none;transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease),box-shadow .4s var(--ease)}
+/* the shared caps voice: title cards, labels, buttons (a press sinks 3%, under motion only) */
+.btn,.bk__go,.mf__go,.mf__copy,.film-btn,.tab{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:2.9rem;padding:.95em 1.6em .7em;border:1px solid var(--bone);font:600 .76rem/1 var(--f-caps);letter-spacing:.2em;text-transform:uppercase;text-align:center;text-decoration:none;color:var(--bone);background:none;transition:background-color var(--t-ui) var(--ease),color var(--t-ui) var(--ease),border-color var(--t-ui) var(--ease),box-shadow .3s var(--ease),transform .16s var(--ease)}
 .btn--fill,.bk__go,.mf__go{background:var(--bone);color:var(--ink)}
 .btn--fill:hover,.bk__go:hover,.mf__go:hover{background:var(--gold);border-color:var(--gold);color:var(--ink);box-shadow:0 10px 30px -12px rgba(226,176,74,.6)}
 .btn--ghost:hover,.mf__copy:hover,.film-btn:hover{border-color:var(--gold);color:var(--gold)}
@@ -57,44 +65,55 @@ dialog{margin:auto;color:var(--bone)}
 .mf__copy[data-done]{border-color:var(--gold);color:var(--gold)}
 .ft__k{font:400 .66rem/1 var(--f-caps);letter-spacing:.18em;text-transform:uppercase;color:var(--bone);margin-right:.4rem}
 
-/* ---- skip, draft band ----------------------------------------------------------------------------------------------- */
+/* ---- skip, draft band ---- */
 .skip{position:absolute;left:var(--gx);top:-5rem;z-index:100;padding:.9em 1.2em .7em;background:var(--gold);color:var(--ink);font:600 .74rem/1 var(--f-caps);letter-spacing:.18em;text-transform:uppercase;text-decoration:none}
 .skip:focus{top:.5rem}
 .draft{position:relative;z-index:60;padding:.55rem var(--gx);background:var(--bone);color:var(--ink);font:400 .82rem/1.45 var(--f-read);text-align:center}
 .draft a{color:inherit;font-weight:500;text-decoration-color:var(--ink)}
 
-/* ---- header --------------------------------------------------------------------------------------------------------- */
-.hd{position:sticky;top:0;z-index:50;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1rem 2rem;height:var(--hd);padding:0 var(--gx);background:var(--ink);color:var(--bone);transition:background .45s var(--ease),box-shadow .45s var(--ease)}
+/* ---- header ---- */
+.hd{position:sticky;top:0;z-index:50;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1rem 2rem;height:var(--hd);padding:0 var(--gx);background:var(--ink);color:var(--bone);transition:background-color .25s var(--ease),box-shadow .25s var(--ease)}
 html[data-scrolled="1"] .hd{background:rgba(15,13,13,.94);box-shadow:0 1px 0 var(--line-2)}
 .hd__logo{display:block;line-height:0}
-.hd__logo img{width:auto;height:2.75rem}
-.nav__list{display:flex;justify-content:center;gap:clamp(.9rem,2vw,2rem)}
-.nav__a{display:inline-block;padding:.65em 0 .4em;border-bottom:1px solid transparent;font:400 .72rem/1 var(--f-caps);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;white-space:nowrap;transition:border-color .3s var(--ease),color .3s var(--ease)}
-.nav__a:hover{border-bottom-color:var(--gold);color:var(--gold)}
-.nav__a[aria-current]{border-bottom-color:var(--gold)}
+.hd__logo img{width:auto;max-width:none;height:2.75rem}
+.nav__list{display:flex;justify-content:center;gap:clamp(.9rem,1.6vw,2rem)}
+/* the credits underline draws from the left on hover and stays drawn under the current page */
+.nav__a{position:relative;display:inline-block;padding:.65em 0 .4em;font:400 .72rem/1 var(--f-caps);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+.nav__a::after{content:"";position:absolute;left:0;right:.2em;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease)}
+.nav__a:hover{color:var(--gold)}
+.nav__a:hover::after,.nav__a[aria-current]::after{transform:none}
 .nav__more{display:none}
-.hd__tools{display:flex;align-items:center;gap:1.4rem}
+.hd__tools{display:flex;align-items:center;gap:1.1rem}
 .hd__clock{font:400 .66rem/1 var(--f-caps);letter-spacing:.16em;text-transform:uppercase;color:var(--bone-2);white-space:nowrap}
 .hd__time{display:inline-block;min-width:3.4em;font-variant-numeric:tabular-nums;color:var(--bone)}
 html:not(.js) .hd__clock,html:not(.js) .nav__clock{display:none}
-.hd__lang,.nav__lang,.ft__lang{display:inline-block;padding:.6em 0;font:400 .7rem/1 var(--f-caps);letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--bone-2)}
-.hd__lang:hover,.nav__lang:hover{color:var(--gold)}
 .hd__reserve{min-height:2.5rem;padding:.8em 1.3em .6em}
 .hd__menu{display:none}
-@media (max-width:900px){
-  :root{--hd:3.75rem}
+
+/* the language menu: five codes, the current one lit by a lamp dot; every target at least 30 × 36 px */
+.langs{display:flex;align-items:center}
+.lang{position:relative;display:inline-grid;place-items:center;min-width:1.9rem;min-height:2.25rem;padding:.2em .3em 0 .42em;font:400 .66rem/1 var(--f-caps);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--bone-2)}
+.lang:hover{color:var(--gold)}
+.lang[aria-current]{color:var(--bone)}
+.lang[aria-current]::after{content:"";position:absolute;left:50%;bottom:.15rem;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px 1px rgba(226,176,74,.5)}
+
+/* ≤1279 px the bar folds into the lamp-dot menu; the clock returns where each language's bar has room (DESIGN.md) */
+@media (max-width:1339px){.hd__clock{display:none}}
+@media (min-width:1340px) and (max-width:1429px){:root:not(:lang(en)) .hd__clock{display:none}}
+@media (min-width:1430px) and (max-width:1529px){:root:is(:lang(ru),:lang(de),:lang(tr)) .hd__clock{display:none}}
+@media (min-width:1280px) and (max-width:1399px){:root:is(:lang(ru),:lang(de),:lang(tr)) .nav__list{gap:1rem}:root:is(:lang(ru),:lang(de),:lang(tr)) .nav__a{letter-spacing:.12em}}
+@media (max-width:1279px){
   .hd{grid-template-columns:auto 1fr;gap:1rem}
-  .hd__logo img{height:2.4rem}
-  .hd__clock,.hd__lang{display:none}
+  .hd__clock{display:none}
   .hd__tools{justify-self:end;gap:.9rem}
-  .hd__reserve{min-height:2.3rem;padding:.75em 1em .55em;font-size:.68rem}
   .hd__menu{display:inline-flex;align-items:center;gap:.65rem;min-height:2.5rem;padding:.4rem .1rem}
   .hd__dots{display:inline-flex;gap:5px}
-  .hd__dots i{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px 1px rgba(226,176,74,.45);transition:transform .45s var(--ease)}
+  .hd__dots i{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px 1px rgba(226,176,74,.45);transition:transform .25s var(--ease-io)}
   .hd__menu[aria-expanded="true"] .hd__dots i:first-child{transform:translateX(12px)}
   .hd__menu[aria-expanded="true"] .hd__dots i:last-child{transform:translateX(-12px)}
   .hd__menu-l{font:600 .68rem/1 var(--f-caps);letter-spacing:.2em;text-transform:uppercase;padding-top:.15em}
   .nav{position:fixed;inset:0;z-index:40;display:none;padding:calc(var(--hd) + 1.5rem) var(--gx) 2.5rem;background:var(--ink);overflow:auto}
+  .hd__logo,.hd__tools{position:relative;z-index:41}
   .nav[data-open="1"]{display:flex;flex-direction:column;justify-content:space-between;gap:2.5rem}
   html.nav-open{overflow:hidden}
   html.nav-open .hd{background:var(--ink)}
@@ -106,19 +125,47 @@ html:not(.js) .hd__clock,html:not(.js) .nav__clock{display:none}
   .nav__b[aria-current]{color:var(--bone);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:.5em}
   .nav__clock{font:400 .7rem/1 var(--f-caps);letter-spacing:.16em;text-transform:uppercase;color:var(--bone-2)}
   .nav__clock .hd__time{color:var(--bone)}
+  .nav__more .langs{gap:.25rem;margin-left:-.5rem}
+  .nav__lang{min-width:2.75rem;min-height:2.75rem;font-size:.8rem}
+  .nav__lang[aria-current]::after{bottom:.3rem}
   /* without JS the toggle cannot open the overlay: the primary nav sits as a row under the header instead */
   html:not(.js) .hd{height:auto;grid-template-rows:auto auto;padding-bottom:.6rem}
   html:not(.js) .hd__tools{grid-row:1;grid-column:2}
   html:not(.js) .nav{position:static;display:block;grid-row:2;grid-column:1/-1;padding:0;background:none;overflow:visible}
   html:not(.js) .nav__list{flex-direction:row;flex-wrap:wrap;gap:.2rem 1.2rem}
-  html:not(.js) .nav__a{font-size:.7rem;letter-spacing:.18em}
+  html:not(.js) .nav__a{padding:.7em 0 .55em;font-size:.7rem;letter-spacing:.18em}
   html:not(.js) .nav__more,html:not(.js) .hd__menu{display:none}
 }
+@media (max-width:900px){
+  :root{--hd:3.75rem}
+  .hd__logo img{height:2.4rem}
+  .hd__tools .langs{display:none}
+  .hd__reserve{min-height:2.3rem;padding:.75em 1em .55em;font-size:.68rem}
+}
+/* phones: Reserve and the toggle fit in every language down to 320 px; where Reserve is long, "Menu" goes screen-reader-only */
+@media (max-width:420px){
+  .hd__tools{gap:.5rem}
+  .hd__reserve{padding:.75em .72em .55em .86em;letter-spacing:.14em}
+  .hd__menu{gap:.45rem;min-width:2.75rem;min-height:2.75rem;justify-content:center}
+}
+@media (max-width:379px){:root:lang(ru) .hd__menu-l{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}}
+@media (max-width:359px){:root:not(:lang(en)) .hd__menu-l{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}}
+@media (max-width:339px){:root:lang(ru) .hd__reserve{padding-inline:.6em .56em;letter-spacing:.06em}}
 
-/* ---- first viewport: black, three dots, the iris ------------------------------------------------------------------ */
+/* ---- first viewport: black, three dots, the iris ---- */
 .hero{position:relative;display:grid;place-items:center;min-height:calc(100svh - var(--hd));overflow:hidden;background:var(--ink);isolation:isolate}
 .hero__media{position:absolute;inset:0;z-index:0}
-.hero__media video{width:100%;height:100%;object-fit:cover}
+/* a loop: the poster frame as a picture, the film on top once site.js plays it (see v3.py loop()) */
+.loop,.loop>*{position:absolute;inset:0}
+.loop img,.loop video{width:100%;height:100%;object-fit:cover}
+html:not(.js) .loop video{display:none}
+/* the pause control of a playing film (v3.js) */
+.loop__ctl{position:absolute;top:.75rem;right:.75rem;z-index:2;display:grid;grid-auto-flow:column;place-content:center;gap:4px;width:2.75rem;height:2.75rem;border:1px solid var(--line);border-radius:50%;background:rgba(15,13,13,.62);color:var(--bone);transition:border-color var(--t-ui) var(--ease),color var(--t-ui) var(--ease)}
+.loop__ctl i{width:3px;height:12px;background:currentColor}
+.loop__ctl.is-held i:first-child{width:0;height:0;margin-left:3px;border-style:solid;border-width:7px 0 7px 11px;border-color:transparent transparent transparent currentColor;background:none}
+.loop__ctl.is-held i:last-child{display:none}
+.loop__ctl:hover{border-color:var(--gold);color:var(--gold)}
+@media (forced-colors:active){.loop__ctl{forced-color-adjust:none;background:ButtonFace;border-color:ButtonText;color:ButtonText}}
 .hero__media::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 58%,transparent 38%,rgba(15,13,13,.62) 100%),linear-gradient(to bottom,rgba(15,13,13,.6),transparent 28%,transparent 68%,rgba(15,13,13,.8))}
 .hero__dots{position:absolute;left:50%;top:50%;z-index:2;display:flex;gap:18px;transform:translate(-50%,-50%);opacity:0;pointer-events:none}
 .hero__dots i{width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 18px 3px rgba(226,176,74,.55)}
@@ -127,8 +174,9 @@ html:not(.js) .hd__clock,html:not(.js) .nav__clock{display:none}
 .hero__sub{margin-top:1.4rem;font:italic 400 clamp(1.1rem,1rem + .9vw,1.5rem)/1.4 var(--f-read);color:var(--bone-2)}
 .hero__sub::before{content:"";display:block;width:1px;height:2.6rem;margin:0 auto 1.3rem;background:linear-gradient(var(--gold),transparent)}
 .hero__acts{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-top:2.6rem}
+@media (max-width:480px){.hero__acts,.card__acts{flex-direction:column;align-items:center;gap:.8rem}.card__acts{align-items:flex-start}:is(.hero__acts,.card__acts) :is(.btn,.film-btn){width:min(100%,16.5rem)}}
 
-/* ---- facts constellation (fixed instrument bar on wide screens, a static strip on phones) ----------------------------- */
+/* ---- facts constellation (fixed instrument bar on wide screens, a static strip on phones) ---- */
 .facts{padding:1.4rem var(--gx);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2);background:var(--ink)}
 .facts__list{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem 1.6rem}
 .facts__list li{display:flex;align-items:center;gap:.55rem;font:italic 400 .9rem/1.3 var(--f-read);color:var(--bone-2)}
@@ -137,6 +185,8 @@ html:not(.js) .hd__clock,html:not(.js) .nav__clock{display:none}
 .facts__date{margin-top:.6rem;text-align:center;font-size:.74rem;color:var(--bone-3)}
 @media (min-width:1100px){
   .has-facts{padding-bottom:2.7rem}
+  /* focus and anchors stop above the fixed bar (WCAG 2.4.11) */
+  :root:has(body.has-facts){scroll-padding-bottom:3.75rem}
   .has-facts .facts{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;align-items:center;justify-content:center;gap:2.5rem;padding:.6rem var(--gx) .5rem;border:0;border-top:1px solid var(--line-2);background:rgba(15,13,13,.95)}
   .has-facts .facts__list{flex-wrap:nowrap;gap:0}
   .has-facts .facts__list li{font-size:.84rem;white-space:nowrap}
@@ -144,8 +194,11 @@ html:not(.js) .hd__clock,html:not(.js) .nav__clock{display:none}
   .has-facts .facts__date{margin:0;font-size:.64rem;white-space:nowrap}
 }
 @media (min-width:1100px) and (max-width:1280px){.has-facts .facts__date{display:none}}
+/* Russian and German facts run longer: the dated line waits for a wider screen, the joins shorten */
+@media (min-width:1100px) and (max-width:1600px){:root:is(:lang(ru),:lang(de),:lang(tr)) .has-facts .facts__date{display:none}}
+@media (min-width:1100px) and (max-width:1380px){:root:is(:lang(ru),:lang(de),:lang(tr)) .has-facts .facts__list li{font-size:.78rem}:root:is(:lang(ru),:lang(de),:lang(tr)) .has-facts .facts__list b{letter-spacing:.12em}:root:is(:lang(ru),:lang(de),:lang(tr)) .has-facts .facts__list li:not(:last-child)::after{width:1rem;margin:0 .6rem}}
 
-/* ---- the file: chapters ----------------------------------------------------------------------------------------------- */
+/* ---- the file: chapters ---- */
 .field--ox{background:var(--ox)}
 .field--green{background:var(--green)}
 .field--mid{background:var(--mid)}
@@ -162,12 +215,12 @@ html:not(.js) .hd__clock,html:not(.js) .nav__clock{display:none}
 /* a reel stands on the chapter's own field, its caption underneath (never over the picture) */
 .ch__media:has(.reel){aspect-ratio:auto;padding:0 var(--gx);background:none}
 .ch__media .reel{display:grid;justify-items:center;row-gap:.85rem}
-.ch__media .reel video{width:auto;height:min(64svh,32rem);max-width:100%;aspect-ratio:9/16;object-fit:cover}
+.ch__media .reel__frame{width:auto;height:min(64svh,32rem);max-width:100%;aspect-ratio:9/16}
 .ch__media .reel figcaption{margin:0;max-width:26rem;justify-content:center;flex-wrap:wrap;column-gap:1rem;text-align:center}
 .ch__text{padding:2.25rem var(--gx) 3rem}
 .ch__body{max-width:var(--measure);font-size:clamp(1.0625rem,1rem + .35vw,1.2rem);line-height:1.6}
 .ch__more,.more,.index__all{margin-top:1.5rem;font:600 .72rem/1.6 var(--f-caps);letter-spacing:.18em;text-transform:uppercase}
-.ch__more a,.more a{padding-bottom:.3em;border-bottom:1px solid var(--gold-2);text-decoration:none;transition:color .3s var(--ease),border-color .3s var(--ease)}
+.ch__more a,.more a{display:inline-block;padding:.4em 0 .3em;border-bottom:1px solid var(--gold-2);text-decoration:none;transition:color var(--t-ui) var(--ease),border-color var(--t-ui) var(--ease)}
 .ch__more a:hover,.more a:hover{border-color:var(--gold);color:var(--gold)}
 .ch__note{margin-top:2rem;padding-top:.9rem;border-top:1px solid var(--line);font:italic 400 .86rem/1.5 var(--f-read);color:var(--bone-2)}
 .ch__src{font:400 .62rem/1 var(--f-caps);letter-spacing:.18em;text-transform:uppercase;font-style:normal;color:var(--bone-2);margin-right:.5rem}
@@ -186,7 +239,7 @@ html:not(.js) .hd__clock,html:not(.js) .nav__clock{display:none}
   .ch__media>img,.ch__media>video{position:absolute;inset:0}
   .ch__media:has(.reel){padding:0}
   .ch__media .reel{position:absolute;inset:0;grid-template-rows:minmax(0,1fr) auto;padding:clamp(3rem,5vw,4.5rem) clamp(2rem,4vw,4rem) clamp(2rem,3.5vw,3rem)}
-  .ch__media .reel video{height:100%}
+  .ch__media .reel__frame{height:100%}
   .ch__text{grid-row:3;display:grid;grid-template-columns:minmax(0,1fr) 8.5rem;grid-auto-rows:max-content;column-gap:2rem;padding:2.75rem clamp(2.5rem,4.5vw,4.5rem) 4.5rem}
   .ch__text>*{grid-column:1}
   .ch__note{grid-column:2;grid-row:1/span 3;align-self:start;margin-top:.35rem;padding:.15rem 0 0 1rem;border-top:0;border-left:1px solid var(--gold-3)}
@@ -195,26 +248,16 @@ html:not(.js) .hd__clock,html:not(.js) .nav__clock{display:none}
 }
 @media (min-width:1500px){.ch__head,.ch__text{padding-left:clamp(4.5rem,6vw,7rem);padding-right:clamp(4.5rem,6vw,7rem)}}
 
-/* reveal states exist only when the shared script is running and motion is allowed */
-html.js.reveal-ready .ch__media[data-reveal]>img,html.js.reveal-ready .ch__media[data-reveal]>video,html.js.reveal-ready .ch__media[data-reveal]>.reel{clip-path:circle(0 at var(--ix,50%) 50%);transition:clip-path 1.7s var(--ease)}
-html.js.reveal-ready .ch__media[data-reveal].is-in>img,html.js.reveal-ready .ch__media[data-reveal].is-in>video,html.js.reveal-ready .ch__media[data-reveal].is-in>.reel{clip-path:circle(100% at var(--ix,50%) 50%)}
-html.js.reveal-ready .ch__text[data-reveal]{opacity:0;transform:translateY(16px);transition:opacity 1s var(--ease) .45s,transform 1s var(--ease) .45s}
-html.js.reveal-ready .ch__text[data-reveal].is-in{opacity:1;transform:none}
-/* every chapter's title moment: the card comes into focus like a lens pull, then the lamp dot lights */
-html.js.reveal-ready .ch__head[data-reveal]>:not([data-typeon]){opacity:0;filter:blur(14px);transform:scale(1.05);transition:opacity 1.3s var(--ease),filter 1.6s var(--ease),transform 2.2s var(--ease)}
-html.js.reveal-ready .ch__head[data-reveal] .ch__year+.ch__title{transition-delay:.4s}
-html.js.reveal-ready .ch__head[data-reveal].is-in>*{opacity:1;filter:blur(0);transform:none}
-html.js.reveal-ready .ch__head[data-reveal] .ch__year::after{opacity:0;box-shadow:0 0 0 0 rgba(226,176,74,0);transition:opacity .8s var(--ease) 1s,box-shadow 1.6s var(--ease) 1s}
-html.js.reveal-ready .ch__head[data-reveal].is-in .ch__year::after{opacity:1;box-shadow:var(--glow)}
-
 /* the one type-on: the first chapter title, once (v3.js); the untyped rest keeps its place, so centred lines never shift */
 .typeon.is-typing{color:transparent}
 .typeon__live{position:absolute;inset:0;padding-left:inherit;color:var(--bone);pointer-events:none}
 .typeon__rest{color:transparent}
 .typeon__dot{display:inline-block;width:.3em;height:.3em;margin:0 -.6em 0 .3em;border-radius:50%;background:var(--gold);box-shadow:var(--glow);vertical-align:.12em;animation:blink 1s steps(2,start) infinite}
 @keyframes blink{50%{opacity:0}}
+/* forced colours: one title, not two overlapping copies */
+@media (forced-colors:active){.typeon__live{display:none}.typeon.is-typing{color:CanvasText}}
 
-/* ---- section heads, tonight's doors, the room index ----------------------------------------------------------------- */
+/* ---- section heads, tonight's doors, the next chapter, the room index ---- */
 .sec__head{max-width:var(--measure)}
 .sec__title{font:400 var(--t-2)/1.15 var(--f-caps);letter-spacing:.14em;text-transform:uppercase;text-wrap:balance}
 .sec__line{margin-top:.9rem;font:italic 400 1.15rem/1.5 var(--f-read);color:var(--bone-2)}
@@ -223,29 +266,43 @@ html.js.reveal-ready .ch__head[data-reveal].is-in .ch__year::after{opacity:1;box
 .doors{display:grid;gap:1.25rem;margin-top:2.5rem}
 .doors--page{margin-top:0}
 .doors-wrap{padding:2.5rem var(--gx) 3rem;max-width:calc(var(--max) + 2 * var(--gx));margin:0 auto}
-.door__a{position:relative;display:block;aspect-ratio:3/2;overflow:hidden;background:var(--ink-2);text-decoration:none;isolation:isolate}
+/* a door: name and lines stack up from the bottom edge, so longer translations grow upward */
+.door__a{position:relative;display:grid;align-content:end;aspect-ratio:3/2;overflow:hidden;padding:0 1.5rem 1.4rem;background:var(--ink-2);text-decoration:none;isolation:isolate}
 .door--tall .door__a{aspect-ratio:4/3}
-.door__img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
-.door__a:hover .door__img{transform:scale(1.035)}
-.door__a::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,13,13,.9),rgba(15,13,13,.25) 45%,transparent 70%)}
-.door__name,.door__line,.door__sub{position:absolute;left:1.5rem;right:1.5rem;z-index:1}
-.door__name{bottom:3.6rem;font:400 clamp(1.1rem,1rem + .8vw,1.5rem)/1 var(--f-caps);letter-spacing:.2em;text-transform:uppercase}
-.door__line{bottom:1.5rem;font:italic 400 1rem/1.4 var(--f-read);color:var(--bone)}
-.door--tall .door__name{bottom:4.6rem}
-.door--tall .door__line{bottom:2.7rem}
-.door__sub{bottom:1.2rem;font-size:.86rem;color:var(--bone-2)}
+.door__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform var(--t-in) var(--ease)}
+.door__a::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,13,13,.95),rgba(15,13,13,.84) 36%,rgba(15,13,13,.45) 64%,transparent 88%)}
+/* three-line doors stand square on phones */
+@media (max-width:599px){.door--tall .door__a{aspect-ratio:1}}
+.door__name,.door__line,.door__sub{position:relative;z-index:1}
+.door__name{font:400 clamp(1.1rem,1rem + .8vw,1.5rem)/1.15 var(--f-caps);letter-spacing:.2em;text-transform:uppercase;transition:color var(--t-ui) var(--ease)}
+.door__line{margin-top:.6rem;font:italic 400 1rem/1.4 var(--f-read);color:var(--bone)}
+.door__sub{margin-top:.3rem;font-size:.86rem;line-height:1.4;color:var(--bone-2)}
 .door__a:hover .door__name{color:var(--gold)}
 @media (min-width:800px){.doors{grid-template-columns:1fr 1fr;gap:1.75rem}}
 .index{padding:0 0 4.5rem}
 .index .rooms{padding:0 var(--gx);max-width:calc(var(--max) + 2 * var(--gx));margin:0 auto}
 .index__all{padding:0 var(--gx);margin-top:2.5rem;text-align:center}
 
-/* ---- rooms: tiles and the finder ------------------------------------------------------------------------------------ */
+/* the Gordon Ramsay concept (--ramsay only): a quiet next-chapter card, its lamp unlit; the Concept tag and note never hide */
+.next{padding:4.5rem 0 0}
+.next--page{padding:4.5rem var(--gx) 4.5rem}
+.ramsay{position:relative;max-width:54rem;margin:0 auto;padding:3.4rem clamp(1.25rem,5vw,3.75rem) 2.5rem;text-align:center}
+.ramsay::before{content:"";position:absolute;inset:0;border:1px solid var(--line);pointer-events:none}
+.ramsay__tag{position:absolute;left:50%;top:0;z-index:1;transform:translate(-50%,-50%);padding:.6em 1.15em .42em 1.35em;border:1px solid var(--gold-3);background:var(--ink);font:400 .66rem/1 var(--f-caps);letter-spacing:.2em;text-transform:uppercase;color:var(--bone);white-space:nowrap}
+.ramsay__lockup{display:grid;justify-items:center;gap:.55rem}
+.ramsay__name{padding-left:.3em;font:400 clamp(1.55rem,1rem + 2.3vw,2.7rem)/1.1 var(--f-caps);letter-spacing:.3em;text-transform:uppercase;text-wrap:balance}
+.ramsay__at{font:italic 400 clamp(1.05rem,1rem + .4vw,1.25rem)/1.3 var(--f-read);color:var(--bone-2)}
+.ramsay__lockup::after{content:"";width:8px;height:8px;margin-top:.85rem;border:1px solid var(--gold);border-radius:50%}
+.ramsay__title{max-width:26ch;margin:1.2rem auto 0;padding-left:.16em;font:400 var(--t-3)/1.3 var(--f-caps);letter-spacing:.16em;text-transform:uppercase;text-wrap:balance}
+.ramsay__line{max-width:42ch;margin:.85rem auto 0;font:italic 400 1.1rem/1.5 var(--f-read);color:var(--bone-2)}
+.ramsay__note{max-width:46ch;margin:1.6rem auto 0;padding-top:1rem;border-top:1px solid var(--line-2);font-size:.88rem;line-height:1.5;color:var(--bone-2)}
+
+/* ---- rooms: tiles and the finder ---- */
 .rooms{display:grid;gap:2.25rem 1.5rem}
 .rc__a{display:block;text-decoration:none}
-.rc__img{width:100%;aspect-ratio:3/2;object-fit:cover;transition:filter .6s var(--ease)}
+.rc__img{width:100%;aspect-ratio:3/2;object-fit:cover;transition:filter .3s var(--ease)}
 .rc__a:hover .rc__img{filter:brightness(1.08)}
-.rc__name{display:block;margin-top:1rem;font:400 .8rem/1.4 var(--f-caps);letter-spacing:.2em;text-transform:uppercase;transition:color .3s var(--ease)}
+.rc__name{display:block;margin-top:1rem;font:400 .8rem/1.4 var(--f-caps);letter-spacing:.2em;text-transform:uppercase;transition:color var(--t-ui) var(--ease)}
 .rc__a:hover .rc__name{color:var(--gold)}
 .rc__title{display:block;margin-top:.3rem;font:italic 400 1.12rem/1.35 var(--f-read)}
 .rc__line{display:block;margin-top:.3rem;font-size:.9rem;color:var(--bone-2)}
@@ -256,27 +313,29 @@ html.js.reveal-ready .ch__head[data-reveal].is-in .ch__year::after{opacity:1;box
 .finder{margin-bottom:2.5rem}
 .finder__t{margin-bottom:1rem;font:400 .8rem/1 var(--f-caps);letter-spacing:.2em;text-transform:uppercase}
 .finder__row{display:flex;flex-wrap:wrap;gap:.7rem}
-.finder__f{display:inline-flex;align-items:center;gap:.65rem;min-height:2.6rem;padding:.75em 1.1em .55em;border:1px solid var(--line);font:400 .74rem/1 var(--f-caps);letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:border-color .3s var(--ease),color .3s var(--ease)}
+.finder__f{display:inline-flex;align-items:center;gap:.65rem;min-height:2.6rem;padding:.75em 1.1em .55em;border:1px solid var(--line);font:400 .74rem/1 var(--f-caps);letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:border-color var(--t-ui) var(--ease),color var(--t-ui) var(--ease)}
 .finder__f:hover{border-color:var(--bone)}
 .finder__f:has(:checked){border-color:var(--bone);color:var(--bone)}
-.finder__f input{appearance:none;width:10px;height:10px;margin:0 0 .15em;border:1px solid var(--bone-2);border-radius:50%;background:none;transition:background .3s var(--ease)}
+.finder__f input{appearance:none;width:10px;height:10px;margin:0 0 .15em;border:1px solid var(--bone-2);border-radius:50%;background:none;transition:background-color var(--t-ui) var(--ease),box-shadow .3s var(--ease)}
 .finder__f input:checked{background:var(--gold);border-color:var(--gold);box-shadow:0 0 8px 1px rgba(226,176,74,.5)}
 .finder__none{margin-top:1.5rem;font-style:italic;color:var(--bone-2)}
 
-/* ---- inner pages: the title card ------------------------------------------------------------------------------------- */
+/* ---- inner pages: the title card ---- */
 .card{position:relative;display:grid;align-items:end;min-height:min(72svh,44rem);overflow:hidden;background:var(--ink);isolation:isolate}
 .card--bare{min-height:0;padding-top:3rem}
 .card--404{min-height:min(70svh,40rem)}
 .card__media{position:absolute;inset:0;z-index:0}
 .card__media img,.card__media video{width:100%;height:100%;object-fit:cover}
-.card__media::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(15,13,13,.35),rgba(15,13,13,.06) 26%,rgba(15,13,13,.5) 58%,rgba(15,13,13,.95))}
+/* the scrim is darkest where the title card sits: title ≥ 3:1, line ≥ 4.5:1 over the brightest frame (audit-v3.md) */
+.card__media::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(15,13,13,.42),rgba(15,13,13,.2) 18%,rgba(15,13,13,.58) 40%,rgba(15,13,13,.84) 64%,rgba(15,13,13,.95))}
+@media (min-width:900px){.card__media::after{background:linear-gradient(to right,rgba(15,13,13,.8),rgba(15,13,13,.6) 36%,rgba(15,13,13,.12) 66%,transparent 80%),linear-gradient(to bottom,rgba(15,13,13,.4),rgba(15,13,13,.12) 20%,rgba(15,13,13,.45) 52%,rgba(15,13,13,.92))}}
 .card__body{position:relative;z-index:1;width:100%;max-width:calc(var(--max) + 2 * var(--gx));margin:0 auto;padding:3rem var(--gx) 3.5rem}
 .card__title{font:400 clamp(1.8rem,1rem + 3.4vw,4rem)/1.08 var(--f-caps);letter-spacing:.18em;text-transform:uppercase;text-wrap:balance;max-width:18ch}
 .card__line{margin-top:1.1rem;max-width:44ch;font:italic 400 clamp(1.1rem,1rem + .6vw,1.4rem)/1.45 var(--f-read);color:var(--bone-2)}
 .card__acts{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem}
 .card--bare .card__body{padding-bottom:1.5rem}
 
-/* ---- generic sections ----------------------------------------------------------------------------------------------- */
+/* ---- generic sections ---- */
 .split{display:grid;gap:2rem;padding:4rem var(--gx)}
 .split>*{max-width:calc(var(--max) / 2 + 2rem)}
 .split__text{max-width:var(--measure)}
@@ -300,7 +359,7 @@ html.js.reveal-ready .ch__head[data-reveal].is-in .ch__year::after{opacity:1;box
 .strip{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;max-width:calc(var(--max) + 2 * var(--gx));margin:0 auto;padding:0 var(--gx) 4.5rem}
 .strip .pic:first-child:nth-last-child(odd){grid-column:1/-1}
 .pic a{display:block}
-.pic img{width:100%;aspect-ratio:3/2;object-fit:cover;transition:filter .6s var(--ease)}
+.pic img{width:100%;aspect-ratio:3/2;object-fit:cover;transition:filter .3s var(--ease)}
 .pic a:hover img{filter:brightness(1.08)}
 @media (min-width:900px){.strip{grid-template-columns:repeat(3,1fr);gap:1rem}.strip .pic:first-child:nth-last-child(odd){grid-column:auto}.strip .pic:first-child:nth-last-child(4),.strip .pic:first-child:nth-last-child(4)+.pic{grid-column:span 1}}
 .prose{max-width:calc(var(--measure) + 2 * var(--gx));margin:0 auto;padding:3rem var(--gx) 4rem;font-size:1.1rem}
@@ -319,9 +378,9 @@ html.js.reveal-ready .ch__head[data-reveal].is-in .ch__year::after{opacity:1;box
 .table{padding:4rem var(--gx) 5rem;background:var(--ink-2)}
 .table__in{max-width:54rem;margin:0 auto}
 .mf,.bk{display:grid;gap:1.35rem 1.5rem;margin-top:2rem}
-.mf__f,.bk__f{display:grid;gap:.45rem}
+.mf__f,.bk__f{display:grid;gap:.45rem;min-width:0}
 .mf__l,.bk__l{font:400 .66rem/1 var(--f-caps);letter-spacing:.18em;text-transform:uppercase;color:var(--bone-2)}
-.mf input,.mf select,.mf textarea,.bk input,.bk select{width:100%;min-height:2.6rem;padding:.6em .1em .45em;border:0;border-bottom:1px solid var(--bone-3);border-radius:0;background:transparent;color:var(--bone);font:400 1.05rem/1.3 var(--f-read);transition:border-color .3s var(--ease),box-shadow .3s var(--ease)}
+.mf input,.mf select,.mf textarea,.bk input,.bk select{width:100%;min-height:2.6rem;padding:.6em .1em .45em;border:0;border-bottom:1px solid var(--bone-3);border-radius:0;background:transparent;color:var(--bone);font:400 1.05rem/1.3 var(--f-read);transition:border-color var(--t-ui) var(--ease),box-shadow var(--t-ui) var(--ease)}
 .mf select,.bk select{padding-right:1.5rem}
 .mf input:focus-visible,.mf select:focus-visible,.mf textarea:focus-visible,.bk input:focus-visible,.bk select:focus-visible{outline:0;border-bottom-color:var(--gold);box-shadow:0 1px 0 var(--gold),0 6px 18px -8px rgba(226,176,74,.6)}
 ::placeholder{color:var(--bone-3);opacity:1}
@@ -341,7 +400,7 @@ html.js.reveal-ready .ch__head[data-reveal].is-in .ch__year::after{opacity:1;box
 .bk--dialog .bk__f--code,.bk--dialog .bk__go{grid-column:1/-1}
 .bk--dialog .bk__go{justify-self:stretch}
 
-/* ---- room page -------------------------------------------------------------------------------------------------------- */
+/* ---- room page ---- */
 .room{max-width:calc(var(--max) + 2 * var(--gx));margin:0 auto;padding:3rem var(--gx) 4.5rem}
 .room__grid{display:grid;gap:2.5rem}
 .room__line{font:italic 400 1.2rem/1.5 var(--f-read);color:var(--bone-2)}
@@ -362,16 +421,16 @@ html.js.reveal-ready .ch__head[data-reveal].is-in .ch__year::after{opacity:1;box
 .others{max-width:calc(var(--max) + 2 * var(--gx));margin:0 auto;padding:4rem var(--gx) 5rem}
 .others__list{margin-top:1.5rem;border-top:1px solid var(--line)}
 .others__list a{display:grid;gap:.2rem;padding:1rem 0;border-bottom:1px solid var(--line-2);text-decoration:none}
-.others__list b{font:400 .8rem/1.4 var(--f-caps);letter-spacing:.18em;text-transform:uppercase;transition:color .3s var(--ease)}
+.others__list b{font:400 .8rem/1.4 var(--f-caps);letter-spacing:.18em;text-transform:uppercase;transition:color var(--t-ui) var(--ease)}
 .others__list span{font-size:.95rem;color:var(--bone-2)}
 .others__list a:hover b{color:var(--gold)}
 @media (min-width:700px){.others__list a{grid-template-columns:19rem 1fr;gap:1.5rem;align-items:baseline}}
 
-/* ---- menu (L'Adresse, massages) --------------------------------------------------------------------------------------- */
+/* ---- menu (L'Adresse, massages) ---- */
 .menu{max-width:calc(var(--max) + 2 * var(--gx));margin:0 auto;padding:4rem var(--gx) 5rem}
 .menu__nav{position:sticky;top:var(--hd);z-index:5;margin-top:2rem;padding:.9rem 0;border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2);background:var(--ink)}
 .menu__nav ul{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem}
-.menu__nav a{display:inline-block;padding:.35em 0;font:400 .7rem/1.6 var(--f-caps);letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--bone-2);transition:color .3s var(--ease)}
+.menu__nav a{display:inline-block;padding:.35em 0;font:400 .7rem/1.6 var(--f-caps);letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--bone-2)}
 .menu__nav a:hover{color:var(--gold)}
 .menu__cols{margin-top:2.5rem;columns:2 22rem;column-gap:4rem}
 .menu__cols--2{columns:2 24rem}
@@ -384,10 +443,13 @@ html.js.reveal-ready .ch__head[data-reveal].is-in .ch__year::after{opacity:1;box
 .mi__lead{flex:1;min-width:1.25rem;border-bottom:1px dotted var(--bone-3);transform:translateY(-.32em)}
 .mi__price{font-variant-numeric:tabular-nums;white-space:nowrap}
 .mi__dur{font-size:.9rem;color:var(--bone-2);white-space:nowrap}
+/* massages: duration and price wrap together to a second line, never off-screen */
+.mi__meta{display:inline-flex;align-items:baseline;gap:.6rem;margin-left:auto;white-space:nowrap}
+.menu--spa .mi__row{flex-wrap:wrap;row-gap:.15rem}
 .mi__desc{display:block;margin-top:.2rem;max-width:44ch;font-size:.92rem;color:var(--bone-2)}
 .menu--spa .menu__cols{margin-top:2rem}
 
-/* ---- offers, places, contact, faq, gallery, reels, concept ---------------------------------------------------------- */
+/* ---- offers, places, contact, faq, gallery, reels, concept ---- */
 .offer{display:grid;gap:2rem;padding:4rem var(--gx)}
 .offer>*{max-width:calc(var(--max) / 2 + 2rem)}
 .offer__text{max-width:var(--measure)}
@@ -415,9 +477,9 @@ ol.places .place::before{counter-increment:p;content:counter(p,decimal-leading-z
 .faq{max-width:54rem;margin:0 auto;padding:2rem var(--gx) 5rem}
 .faq__list{border-top:1px solid var(--line)}
 .faq__i{border-bottom:1px solid var(--line-2)}
-.faq__i summary{display:flex;align-items:center;gap:1rem;padding:1.1rem 0 .9rem;list-style:none;cursor:pointer;font:500 1.1rem/1.4 var(--f-read)}
+.faq__i summary{display:flex;align-items:center;gap:1rem;padding:1.1rem 0 .9rem;list-style:none;cursor:pointer;font:500 1.1rem/1.4 var(--f-read);transition:color var(--t-ui) var(--ease)}
 .faq__i summary::-webkit-details-marker{display:none}
-.faq__i summary::before{content:"";flex:none;width:9px;height:9px;border:1px solid var(--gold);border-radius:50%;transition:background .3s var(--ease),box-shadow .3s var(--ease)}
+.faq__i summary::before{content:"";flex:none;width:9px;height:9px;border:1px solid var(--gold);border-radius:50%;transition:background-color var(--t-ui) var(--ease),box-shadow .3s var(--ease)}
 .faq__i[open] summary::before{background:var(--gold);box-shadow:0 0 10px 1px rgba(226,176,74,.5)}
 .faq__i summary:hover{color:var(--gold)}
 .faq__i p{max-width:var(--measure);padding:0 0 1.25rem 1.6rem;color:var(--bone-2)}
@@ -433,8 +495,8 @@ ol.places .place::before{counter-increment:p;content:counter(p,decimal-leading-z
 .gal__i.pic--v{grid-row:span 2}
 @media (min-width:1100px){.gal{gap:1rem;grid-auto-rows:13rem}}
 .reels{max-width:calc(var(--max) + 2 * var(--gx));margin:0 auto;padding:4rem var(--gx) 5rem}
-.reels__row{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2rem}
-@media (min-width:900px){.reels__row{grid-template-columns:repeat(4,1fr);gap:1.5rem}}
+.reels__row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:2rem}
+@media (min-width:900px){.reels__row{grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5rem}}
 .concept{padding:5rem var(--gx);background:var(--mid)}
 .concept__in{max-width:var(--max);margin:0 auto}
 .concept__act{margin-top:2rem}
@@ -446,16 +508,26 @@ ol.places .place::before{counter-increment:p;content:counter(p,decimal-leading-z
 .awards__date{margin-top:1rem;font-size:.8rem;font-style:italic;color:var(--bone-2)}
 @media (min-width:600px){.awards{grid-template-columns:1fr 1fr;gap:1rem 2rem}}
 
-/* ---- reels, film, lightbox ------------------------------------------------------------------------------------------- */
+/* ---- reels, film, lightbox ---- */
 .reel{width:100%}
 .reel video{width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;background:var(--ink-2);cursor:pointer}
+/* the poster is a lazy picture under a transparent film (v3.py reel()); without JS the picture alone shows */
+.reel__frame{position:relative;display:block;background:var(--ink-2)}
+.reel__frame>:is(img,video){display:block;width:100%;height:100%;aspect-ratio:9/16;object-fit:cover}
+.reel__frame>.loop__ctl{top:.5rem;right:.5rem}
+.reel__frame>video{position:absolute;inset:0;height:100%;background:transparent}
+html:not(.js) .reel__frame>video{display:none}
 .reel figcaption{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-top:.7rem;font:italic 400 .88rem/1.4 var(--f-read);color:var(--bone-2)}
-.reel__ig{flex:none;padding:.4em 0;font:400 .62rem/1.6 var(--f-caps);letter-spacing:.18em;text-transform:uppercase;font-style:normal;text-decoration:none;color:var(--bone);transition:color .3s var(--ease)}
+.reel__ig{flex:none;padding:.4em 0;font:400 .62rem/1.6 var(--f-caps);letter-spacing:.18em;text-transform:uppercase;font-style:normal;text-decoration:none;color:var(--bone)}
+.reel__cap{min-width:0;overflow-wrap:break-word}
+/* narrow reels: the Instagram link under the caption, so a long word never widens the row */
+.reels__row .reel figcaption,.ch__exhibit .reel figcaption,.split__reels .reel figcaption{flex-direction:column;align-items:flex-start;gap:.1rem}
+@media (min-width:1100px){.reels__row .reel figcaption{flex-direction:row;align-items:baseline;gap:1rem}}
 .reel__ig:hover{color:var(--gold)}
 .film{width:min(96vw,80rem);max-width:none;padding:0;border:0;background:var(--ink)}
 .film::backdrop{background:rgba(15,13,13,.92)}
 .film video{width:100%;height:auto}
-.film__close,.rsv__x,.lightbox__x,.lightbox__prev,.lightbox__next{width:2.75rem;height:2.75rem;border:1px solid var(--line);border-radius:50%;background:rgba(15,13,13,.75);font:400 1.5rem/1 var(--f-read);color:var(--bone);transition:border-color .3s var(--ease),color .3s var(--ease)}
+.film__close,.rsv__x,.lightbox__x,.lightbox__prev,.lightbox__next{width:2.75rem;height:2.75rem;border:1px solid var(--line);border-radius:50%;background:rgba(15,13,13,.75);font:400 1.5rem/1 var(--f-read);color:var(--bone);transition:border-color var(--t-ui) var(--ease),color var(--t-ui) var(--ease)}
 .film__close:hover,.rsv__x:hover,.lightbox__x:hover,.lightbox__prev:hover,.lightbox__next:hover{border-color:var(--gold);color:var(--gold)}
 .film__close{position:absolute;right:.6rem;top:.6rem;z-index:1}
 .lightbox{width:min(96vw,90rem);max-width:none;max-height:96vh;padding:0;border:0;background:transparent}
@@ -467,18 +539,20 @@ ol.places .place::before{counter-increment:p;content:counter(p,decimal-leading-z
 .lightbox__prev,.lightbox__next{position:fixed;top:50%;transform:translateY(-50%)}
 .lightbox__prev{left:1rem}
 .lightbox__next{right:1rem}
+/* dialogs fade in and out with their backdrop (250 ms in, the same way out); the reserve card also settles from 97% */
+.rsv,.film,.lightbox{transition:opacity .25s var(--ease),transform .25s var(--ease),overlay .25s allow-discrete,display .25s allow-discrete}
+:is(.rsv,.film,.lightbox):not([open]){opacity:0}
+:is(.rsv,.film,.lightbox)::backdrop{transition:opacity .25s var(--ease),overlay .25s allow-discrete,display .25s allow-discrete}
+:is(.rsv,.film,.lightbox):not([open])::backdrop{opacity:0}
+@starting-style{:is(.rsv,.film,.lightbox)[open],:is(.rsv,.film,.lightbox)[open]::backdrop{opacity:0}}
 
-/* ---- the last chapter: dates ------------------------------------------------------------------------------------------ */
+/* ---- the last chapter: dates ---- */
 .close{position:relative;overflow:hidden;padding:5rem var(--gx) 6rem;background:var(--ink)}
 .close::before{content:"";position:absolute;left:50%;top:0;width:70rem;height:70rem;border-radius:50%;transform:translate(-50%,-72%);background:radial-gradient(circle,rgba(226,176,74,.16),transparent 62%);pointer-events:none}
-/* the closing card, staged like end credits: the three dots, then everything on the centre axis (the form keeps its own order) */
+/* the closing card, staged like end credits on the centre axis */
 .close__in{position:relative;max-width:var(--max);margin:0 auto;text-align:center}
 .close__dots{display:flex;justify-content:center;gap:14px;margin-bottom:2.25rem}
 .close__dots i{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:var(--glow)}
-html.js.reveal-ready .close__dots[data-reveal] i{opacity:0;transition:opacity .9s var(--ease),transform 1.6s var(--ease) .15s}
-html.js.reveal-ready .close__dots[data-reveal] i:first-child{transform:translateX(22px)}
-html.js.reveal-ready .close__dots[data-reveal] i:last-child{transform:translateX(-22px)}
-html.js.reveal-ready .close__dots[data-reveal].is-in i{opacity:1;transform:none}
 .close__t{padding-left:.14em;font:400 var(--t-2)/1.15 var(--f-caps);letter-spacing:.14em;text-transform:uppercase;text-wrap:balance}
 .close__line{margin:.9rem auto 0;max-width:42ch;font:italic 400 1.15rem/1.5 var(--f-read);color:var(--bone-2)}
 .close .bk{text-align:left}
@@ -492,7 +566,7 @@ html.js.reveal-ready .close__dots[data-reveal].is-in i{opacity:1;transform:none}
 .rsvb .bk{margin-top:1.5rem}
 .rsvb__note{margin-top:1rem;font-size:.86rem;color:var(--bone-2)}
 
-/* ---- the Reserve dialog (top right, everywhere) ---------------------------------------------------------------------- */
+/* ---- the Reserve dialog (top right, everywhere) ---- */
 .rsv{position:relative;width:min(92vw,40rem);padding:2.5rem clamp(1.25rem,4vw,2.5rem) 2rem;border:1px solid var(--gold-3);background:var(--ink-2);box-shadow:0 30px 80px -20px rgba(0,0,0,.85)}
 .rsv::backdrop{background:rgba(15,13,13,.78)}
 .rsv__x{position:absolute;right:.75rem;top:.75rem}
@@ -501,64 +575,142 @@ html.js.reveal-ready .close__dots[data-reveal].is-in i{opacity:1;transform:none}
 .rsv__note{margin-top:1.25rem;font-size:.86rem;color:var(--bone-2)}
 .rsv__alt{margin-top:.5rem;font-size:.95rem}
 
-/* ---- footer ----------------------------------------------------------------------------------------------------------- */
+/* ---- footer ---- */
 .ft{padding:4rem var(--gx) 2.5rem;border-top:1px solid var(--line-2);background:var(--ink)}
 .ft__grid{display:grid;gap:3rem;max-width:var(--max);margin:0 auto}
 .ft__brand img{width:auto;height:3.25rem}
 .ft__brand p{margin-top:1.25rem;font-size:.95rem;color:var(--bone-2)}
 .ft__brand a{color:var(--bone)}
 .ft__nav ul{display:grid;grid-template-columns:1fr 1fr;gap:.6rem 1.5rem}
-.ft__nav a,.social a{display:inline-block;padding:.3em 0;font:400 .7rem/1.5 var(--f-caps);letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--bone-2);transition:color .3s var(--ease)}
+.ft__nav a,.social a{display:inline-block;padding:.3em 0;font:400 .7rem/1.5 var(--f-caps);letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--bone-2)}
 .ft__nav a:hover,.social a:hover{color:var(--gold)}
 .ft__nav a[aria-current]{color:var(--bone)}
 .social{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem}
 .brands{display:flex;flex-wrap:wrap;align-items:center;gap:1.25rem 2rem;margin-top:2.25rem}
-.brand{display:inline-flex;align-items:center;gap:.7rem;font:400 .66rem/1.4 var(--f-caps);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--bone-2)}
+.brand{display:inline-flex;align-items:center;gap:.7rem;min-height:1.5rem;font:400 .66rem/1.4 var(--f-caps);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--bone-2)}
 .brand img{width:auto;height:2.5rem}
 .brand--marriott img{height:1.9rem}
 .brand__key{position:relative;width:11px;height:11px;border:1.5px solid var(--gold);border-radius:50%;margin-bottom:.35em}
 .brand__key::after{content:"";position:absolute;left:50%;top:100%;width:1.5px;height:7px;background:var(--gold)}
-.ft__legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem 2rem;max-width:var(--max);margin:3rem auto 0;padding-top:1.5rem;border-top:1px solid var(--line-2);font-size:.8rem;color:var(--bone-2)}
+.ft__legal{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.75rem 2rem;max-width:var(--max);margin:3rem auto 0;padding-top:1.5rem;border-top:1px solid var(--line-2);font-size:.8rem;color:var(--bone-2)}
 .ft__legal a{color:var(--bone-2)}
-.ft__lang{font-size:.66rem}
+.ft__end{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem 1.5rem}
+.ft__end .langs{margin-left:-.3rem}
 @media (min-width:900px){.ft__grid{grid-template-columns:1.2fr 1fr 1fr;gap:4rem}}
 
-/* ---- the title sequence (JS on, motion allowed): three dots, iris, tracking-in --------------------------------------- */
+/* ---- motion: one grammar, three verbs — the iris opens, the lens pulls into focus, the lamp lights ---- */
+/* hidden states only under .reveal-ready (site.js); entrances 0.6–0.7 s */
+html.js.reveal-ready .ch__media[data-reveal]>:is(img,.loop,.reel){clip-path:circle(0 at var(--ix,50%) 50%);transition:clip-path var(--t-in) var(--ease)}
+html.js.reveal-ready .ch__media[data-reveal].is-in>:is(img,.loop,.reel){clip-path:circle(100% at var(--ix,50%) 50%)}
+html.js.reveal-ready .ch__media[data-reveal]>.loop__ctl{opacity:0;transition:opacity .3s var(--ease) .45s}
+html.js.reveal-ready .ch__media[data-reveal].is-in>.loop__ctl{opacity:1}
+/* each chapter's title moment: the year and the title pull into focus a beat apart, then the lamp dot switches on */
+html.js.reveal-ready .ch__head[data-reveal]>:not([data-typeon]){opacity:0;filter:blur(10px);transform:scale(1.04);transition:opacity var(--t-in) var(--ease),filter var(--t-in) var(--ease),transform var(--t-in) var(--ease)}
+html.js.reveal-ready .ch__head[data-reveal] .ch__year+.ch__title{transition-delay:.12s}
+html.js.reveal-ready .ch__head[data-reveal].is-in>*{opacity:1;filter:blur(0);transform:none}
+html.js.reveal-ready .ch__head[data-reveal] .ch__year::after{opacity:0;transform:scale(.3);transition:opacity .4s var(--ease) .5s,transform .5s var(--ease) .5s}
+html.js.reveal-ready .ch__head[data-reveal].is-in .ch__year::after{opacity:1;transform:none}
+html.js.reveal-ready .ch__text[data-reveal]{opacity:0;transform:translateY(12px);transition:opacity .6s var(--ease) .2s,transform .6s var(--ease) .2s}
+html.js.reveal-ready .ch__text[data-reveal].is-in{opacity:1;transform:none}
+/* the next-chapter card: its frame opens from the centre, the name comes into focus; tag and note never wait */
+html.js.reveal-ready .next[data-reveal] .ramsay::before{clip-path:inset(0 50%);transition:clip-path var(--t-in) var(--ease)}
+html.js.reveal-ready .next[data-reveal].is-in .ramsay::before{clip-path:inset(0)}
+html.js.reveal-ready .next[data-reveal] :is(.ramsay__lockup,.ramsay__title,.ramsay__line){opacity:0;filter:blur(8px);transform:scale(1.03);transition:opacity .6s var(--ease) .15s,filter .6s var(--ease) .15s,transform .6s var(--ease) .15s}
+html.js.reveal-ready .next[data-reveal].is-in :is(.ramsay__lockup,.ramsay__title,.ramsay__line){opacity:1;filter:blur(0);transform:none}
+/* the end credits: one lamp opens into the logo's three dots */
+html.js.reveal-ready .close__dots[data-reveal] i{opacity:0;transition:opacity .45s var(--ease),transform var(--t-in) var(--ease-io) .1s}
+html.js.reveal-ready .close__dots[data-reveal] i:first-child{transform:translateX(22px)}
+html.js.reveal-ready .close__dots[data-reveal] i:last-child{transform:translateX(-22px)}
+html.js.reveal-ready .close__dots[data-reveal].is-in i{opacity:1;transform:none}
+html.js .no-anim,html.js .no-anim *{transition:none!important}
+
 @media (prefers-reduced-motion:no-preference){
   html{scroll-behavior:smooth}
-  html.js .p-home .hero__media{clip-path:circle(0 at 50% 50%);animation:iris 1.7s var(--ease) 1.05s forwards}
-  html.js .p-home .hero__dots{animation:dots 1.55s var(--ease) .1s forwards}
-  html.js .p-home .hero__dots i:first-child{animation:dot-l .9s var(--ease) .55s forwards}
-  html.js .p-home .hero__dots i:last-child{animation:dot-r .9s var(--ease) .55s forwards}
-  html.js .p-home .hero__card{opacity:0;animation:rise 1.3s var(--ease) 1.75s forwards}
-  html.js .p-home .hero__title{letter-spacing:.55em;text-indent:.55em;animation:track 1.9s var(--ease) 1.75s forwards}
-  html.js .p-home .hd{opacity:0;animation:fade .9s var(--ease) 2.3s forwards}
-  html.js .p-home .facts{opacity:0;animation:fade .9s var(--ease) 2.7s forwards}
-  html.js .card__media{clip-path:circle(0 at 50% 46%);animation:iris-card 1.5s var(--ease) .15s forwards}
+  /* between pages the next page opens through the iris over a dissolve to black; the credits bar stays in place */
+  @view-transition{navigation:auto}
+  .hd{view-transition-name:v3-hd}
+  ::view-transition-old(root){animation:v3-out .3s var(--ease) both}
+  ::view-transition-new(root){animation:v3-iris-page .6s var(--ease) both}
+  ::view-transition-group(v3-hd){animation-duration:var(--t-ui)}
+
+  /* home title sequence (~1.5 s): lamps close, iris opens, title focuses, line and actions rise; the header never waits,
+     any input ends it (v3.js) */
+  html.js:not(.seen) .p-home .hero__dots{animation:v3-dots .8s linear both}
+  html.js:not(.seen) .p-home .hero__dots i:first-child{animation:v3-dot-l .35s var(--ease-io) .2s both}
+  html.js:not(.seen) .p-home .hero__dots i:last-child{animation:v3-dot-r .35s var(--ease-io) .2s both}
+  html.js:not(.seen) .p-home .hero__media{animation:v3-iris-dot var(--t-in) var(--ease) .5s both}
+  html.js:not(.seen) .p-home .hero__title{animation:v3-focus var(--t-in) var(--ease) .55s both}
+  html.js:not(.seen) .p-home .hero__sub{animation:v3-rise .5s var(--ease) .8s both}
+  html.js:not(.seen) .p-home .hero__acts{animation:v3-rise .5s var(--ease) .9s both}
+  html.js:not(.seen) .p-home .facts{animation:v3-in .4s var(--ease) 1.1s both}
+  html.js:not(.seen) .p-home .hero>.loop__ctl{animation:v3-in .4s var(--ease) 1.2s both}
+  html.js .p-home .hero__acts:focus-within,html.intro-skip .p-home :is(.hero__dots,.hero__dots i,.hero__media,.hero__title,.hero__sub,.hero__acts,.facts,.hero>.loop__ctl){animation:none!important}
+  /* the short cut, when the visitor comes from another page of the site: no dots; the page iris already opened it */
+  html.js.seen:not(.vt) .p-home .hero__media{animation:v3-iris-open .6s var(--ease) both}
+  html.js.seen .p-home .hero__title{animation:v3-focus .6s var(--ease) .12s both}
+  html.js.seen .p-home :is(.hero__sub,.hero__acts){animation:v3-rise .5s var(--ease) .25s both}
+  /* inner pages: the picture behind the title card opens through the iris, unless the page itself just did */
+  html.js:not(.vt) .card__media{animation:v3-iris-card var(--t-in) var(--ease) .1s both}
+
+  /* scroll-linked where supported: the camera pushes on as the opening shot leaves; chapter pictures settle */
+  @supports (animation-timeline:view()){
+    .p-home .hero{view-timeline:--v3-hero block}
+    .p-home .hero__card{animation:v3-leave linear both;animation-timeline:--v3-hero;animation-range:exit 0% exit 70%}
+    .p-home .hero__media .loop{animation:v3-push linear both;animation-timeline:--v3-hero;animation-range:exit 0% exit 100%}
+    .ch__media>:is(img,.loop){animation:v3-settle linear both;animation-timeline:view();animation-range:entry 0% exit 100%}
+  }
+
+  /* hover and state: pictures lean in slowly under a fine pointer, the mobile menu rolls in like credits */
+  @media (hover:hover) and (pointer:fine){.door__a:hover .door__img{transform:scale(1.035)}}
+  :is(.btn,.bk__go,.mf__go,.mf__copy,.film-btn,.tab):active{transform:scale(.97)}
+  .rsv{transform-origin:center}
+  .rsv:not([open]){transform:scale(.97)}
+  @starting-style{.rsv[open]{transform:scale(.97)}}
+  .nav[data-open="1"]{animation:v3-in .25s var(--ease) both}
+  .nav[data-open="1"] .nav__list li{animation:v3-rise .45s var(--ease) both}
+  .nav[data-open="1"] .nav__list li:nth-child(2){animation-delay:.04s}
+  .nav[data-open="1"] .nav__list li:nth-child(3){animation-delay:.08s}
+  .nav[data-open="1"] .nav__list li:nth-child(4){animation-delay:.12s}
+  .nav[data-open="1"] .nav__list li:nth-child(5){animation-delay:.16s}
+  .nav[data-open="1"] .nav__list li:nth-child(6){animation-delay:.2s}
+  .nav[data-open="1"] .nav__list li:nth-child(7){animation-delay:.24s}
+  .nav[data-open="1"] .nav__more{animation:v3-in .4s var(--ease) .24s both}
+  /* filters: rooms and pictures that come back into the grid settle in, instead of popping */
+  html.js .rc.is-in,html.gal-live .gal__i{transition:opacity .3s var(--ease),translate .3s var(--ease)}
+  @starting-style{html.js .rc.is-in,html.gal-live .gal__i{opacity:0;translate:0 8px}}
 }
-@keyframes iris{to{clip-path:circle(75% at 50% 50%)}}
-@keyframes iris-card{to{clip-path:circle(75% at 50% 46%)}}
-@keyframes dots{0%{opacity:0}25%{opacity:1}80%{opacity:1}100%{opacity:0}}
-@keyframes dot-l{to{transform:translateX(28px)}}
-@keyframes dot-r{to{transform:translateX(-28px)}}
-@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-@keyframes track{to{letter-spacing:.3em;text-indent:.3em}}
-@keyframes fade{to{opacity:1}}
+@keyframes v3-in{from{opacity:0}}
+@keyframes v3-out{to{opacity:0}}
+@keyframes v3-rise{from{opacity:0;transform:translateY(10px)}}
+@keyframes v3-focus{from{opacity:0;filter:blur(12px);transform:scale(1.06)}}
+@keyframes v3-dots{0%{opacity:0}27%{opacity:1}73%{opacity:1}100%{opacity:0}}
+@keyframes v3-dot-l{to{transform:translateX(28px)}}
+@keyframes v3-dot-r{to{transform:translateX(-28px)}}
+@keyframes v3-iris-dot{from{clip-path:circle(5px at 50% 50%)}to{clip-path:circle(75% at 50% 50%)}}
+@keyframes v3-iris-open{from{clip-path:circle(0 at 50% 50%)}to{clip-path:circle(75% at 50% 50%)}}
+@keyframes v3-iris-card{from{clip-path:circle(0 at 50% 46%)}to{clip-path:circle(80% at 50% 46%)}}
+@keyframes v3-iris-page{from{clip-path:circle(0 at 50% 50%)}to{clip-path:circle(75% at 50% 50%)}}
+@keyframes v3-leave{to{opacity:.15;filter:blur(6px);translate:0 -6vh}}
+@keyframes v3-push{to{scale:1.1}}
+@keyframes v3-settle{from{scale:1.08}to{scale:1}}
 
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important}
+  /* no travel, no iris, no focus pull: colour and opacity changes stay, because they carry state */
+  .nav__a::after,.hd__dots i,.door__img{transition:none}
   .typeon__dot{display:none}
 }
 
-/* ---- print: the file on paper --------------------------------------------------------------------------------------- */
+/* ---- print: the file on paper ---- */
 @media print{
   html,body{background:#fff;color:#111}
-  .hd,.draft,.skip,.facts,.hero__media,.hero__dots,.card__media,video,.rsv,.film,.lightbox,.btn,.bk,.mf,.rsvb,.close,.reel,.hd__reserve,.tabs{display:none!important}
+  .hd,.draft,.skip,.facts,.hero__media,.hero__dots,.card__media,video,.loop__ctl,.rsv,.film,.lightbox,.btn,.bk,.mf,.rsvb,.close,.reel,.hd__reserve,.tabs,.langs{display:none!important}
   .hero,.card{min-height:0;padding-top:1rem}
   .field--ox,.field--green,.field--mid,.concept,.feats,.table,.ft,.tonight,.close,.rsvb,.hero,.card{background:none!important;color:#111}
   .ch{display:block;min-height:0}
-  .ch__text,.ch__head>*{opacity:1!important;transform:none!important;filter:none!important}
-  .ch__media>*{clip-path:none!important}
+  .ch__text,.ch__head>*,.ramsay *{opacity:1!important;transform:none!important;filter:none!important}
+  .ch__media>*,.ramsay::before{clip-path:none!important}
+  .loop,.loop>*{position:static}
+  .ramsay__tag{background:#fff;color:#111}
   .typeon__live{display:none}
   .typeon.is-typing{color:#111}
   a{color:#111}
